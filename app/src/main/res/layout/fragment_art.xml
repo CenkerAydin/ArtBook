@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ArtFragment">
-
+    tools:context=".presentation.MainActivity"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -14,26 +15,28 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/art_rv"
+            android:id="@+id/recyclerViewArt"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:contentDescription="Add Art"
-        android:focusable="true"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:contentDescription="@string/fab"
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        app:backgroundTint="@color/design_default_color_secondary"
+        app:fabSize="normal"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_anchor="@id/recyclerViewArt"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+

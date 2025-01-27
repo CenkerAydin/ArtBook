@@ -2,8 +2,14 @@ package com.cenkeraydin.artbook.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.cenkeraydin.artbook.R
+import com.cenkeraydin.artbook.data.repository.ArtRepository
+import com.cenkeraydin.artbook.data.repository.ArtRepositoryImpl
 import com.cenkeraydin.artbook.data.retrofit.RetrofitAPI
 import com.cenkeraydin.artbook.data.room.ArtDB
+import com.cenkeraydin.artbook.data.room.ArtDao
 import com.cenkeraydin.artbook.util.Util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -41,4 +47,15 @@ object AppModule {
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideRepo(dao: ArtDao, api: RetrofitAPI) = ArtRepositoryImpl(dao, api) as ArtRepository
+
+    @Singleton
+    @Provides
+    fun glideModule(@ApplicationContext context: Context) = Glide.with(context).setDefaultRequestOptions(
+        RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
+            .error(R.drawable.ic_launcher_foreground)
+    )
 }

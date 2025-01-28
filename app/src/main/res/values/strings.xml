@@ -2,4 +2,16 @@
     <string name="app_name">ArtBook</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save">Save</string>
+    <string name="enter_year">Enter Year</string>
+    <string name="enter_artist">Enter Artist</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="add_image">add image</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="_1980">1980</string>
+    <string name="art_name">Art Name</string>
+    <string name="row_images">row images</string>
+    <string name="fab">fab</string>
+    <string name="search_image">Search Image</string>
+    <string name="image_row">image row</string>
 </resources>

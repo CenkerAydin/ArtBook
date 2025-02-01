@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.cenkeraydin.artbook.HiltTestRunner"
     }
 
     buildTypes {
@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.core)
     testImplementation (libs.kotlinx.coroutines.test)
     testImplementation (libs.truth)
     testImplementation (libs.androidx.core.testing)
@@ -58,10 +59,20 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.core.testing)
+    androidTestImplementation (libs.kotlinx.coroutines.test)
+    androidTestImplementation (libs.truth)
+    androidTestImplementation (libs.mockito.android)  // Make sure to use the latest version
 
+    androidTestImplementation (libs.hilt.android.testing)
+    kspAndroidTest (libs.hilt.android.compiler)
+    debugImplementation (libs.androidx.fragment.testing)
+    androidTestImplementation(libs.androidx.espresso.contrib)
     //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    ksp (libs.dagger.hilt.compiler)
+
 
     //Room
     implementation(libs.androidx.room.runtime)
